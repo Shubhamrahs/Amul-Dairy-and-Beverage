@@ -1,0 +1,113 @@
+{% extends 'main.html' %} 
+{% block nave %} {% include 'navbarEmployee.html' %}
+{% endblock nave %}
+
+
+
+{% block content %}
+
+<style>
+    .item_name_things {
+        display: flex;align-items: flex-start;justify-content: center;
+    }
+    .item_name_thing {
+        width: 300px;font-size: 18px;font-weight: bold;height: auto
+    }
+    .submit_update {
+background-color: #eeb365;
+border: none;outline: none;padding: 12px 24px; 
+border-radius: 5px;
+margin-left: 40px;
+    }
+</style>
+
+<br />
+<br /><br /><br />
+
+<div class="col-lg-6">
+    <form
+        action=""
+        method="post"
+        role="form"
+        class=""
+        style="width: 900px"
+    >
+        {% csrf_token %}
+
+        <br />
+        <div class="form-group mt-3 item_name_things">
+            <p class="item_name_thing">Item Name</p>
+            <input
+                type="text"
+                class="form-control"
+                name="item_name"
+                placeholder="Item Name"
+                value = "{{obj.item_name}}"
+                required
+                style="width: 500px;"
+            />
+        </div>
+
+        <div class="form-group mt-3 item_name_things">
+            <p class="item_name_thing">Quantity Available</p>
+            <input
+                type="number"
+                class="form-control"
+                name="quantity"
+                placeholder="Quantity"
+                value = "{{obj.quantity}}"
+                required
+                style="width: 500px;"
+            />
+        </div>
+        <!-- <br> -->
+        <div class="form-group mt-3 item_name_things">
+            <p class="item_name_thing">Required Quantity</p>
+
+            <input
+                type="text"
+                class="form-control"
+                name="required_quantity"
+                placeholder="Required Quantity"
+                value = "{{obj.required_quantity}}"
+                style="width: 500px;"
+            />
+        </div>
+
+        <div class="form-group mt-3 item_name_things">
+            <p class="item_name_thing">Category</p>
+
+            <input
+                type="text"
+                class="form-control"
+                name="category"
+                placeholder="Category"
+                value = "{{obj.category}}"
+                style="width: 500px;"
+            />
+        </div>
+
+        <div class="form-group mt-3 item_name_things">
+            <p class="item_name_thing">Price</p>
+
+            <input
+                type="text"
+                class="form-control"
+                name="price"
+                placeholder="price"
+                value = "{{obj.price}}"
+                required
+                style="width: 500px;"
+            />
+        </div>
+        <br />
+
+        <br /><br />
+
+        <button type="submit" value="Submit" class="submit_update" >Update</button>
+    </form>
+</div>
+       
+        
+
+{% endblock %}

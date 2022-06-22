@@ -1,0 +1,117 @@
+{% extends 'main.html' %} {% block nave %} {% include 'navbar.html' %}
+{% endblock nave %} {% block content %} <br /><br />
+
+<style>
+    .category {
+        border: 2px solid black;
+        padding: 16px;
+        border-radius: 5px;
+        font-size: 20px;
+        margin-right: 40px;
+    }
+    .cart_item {
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        background-color: darkgoldenrod;
+        padding: 5px 30px;
+        border-radius: 5px;
+    }
+    .cart_item:hover {
+        color: white;
+    }
+    select {
+        width: 80px;
+        height: 30px;
+        font-weight: 600;
+        margin: 0 50px;
+    }
+
+    option {
+        font-size: 20px;
+        font-weight: 600;
+        border-radius: 0px;
+    }
+    .delete {
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        background-color: darkgoldenrod;
+        padding: 5px 30px;
+        border-radius: 5px;
+    }
+    .delete:hover {
+        color: white;
+    }
+</style>
+
+<br />
+<br /><br />
+<div style="margin: 0 50px">
+    {% if AllD|length < 1 %}
+    <p>Your cart is empty</p>
+    {% endif %}
+    <div class="row">
+        {% for p in AllD %}
+
+        <div
+            class="col-md-4 col-lg-3 d-flex align-items-start"
+            data-aos="fade-up"
+            style="margin-bottom: 20px"
+        >
+            <div>
+                <div
+                    class="rounded border"
+                    style="
+                        padding: 20px 26px;
+                        height: 580px;
+                        width: 320px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-between;
+                        gap: 10px;
+                        text-align: center;
+                    "
+                >
+                    <div
+                        class="category-image"
+                        style="min-width: 100%; height: 300px"
+                    >
+                        <img
+                            src="/{{p.item.product_image}}"
+                            alt="category image"
+                            style="width: 100%"
+                        />
+                    </div>
+
+                    <h5 class="title" style="font-weight: bold; height: 80px">
+                        {{p.item.item_name}}
+                    </h5>
+                    
+                    <p
+                        class="description"
+                        id="price"
+                        style="font-size: 15px; font-weight: 500"
+                    >
+                        Price - {{p.item.price}}
+                    </p>
+                   
+                    <td>
+                        <a
+                            type="submit"
+                            href="{% url 'delete_item_in_cart' p.cart_id %}"
+                            class="delete"
+                            >Delete</a
+                        >
+                    </td>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock content %}

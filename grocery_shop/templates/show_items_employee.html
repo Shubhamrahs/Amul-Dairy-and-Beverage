@@ -1,0 +1,129 @@
+{% extends 'main.html' %} 
+
+{% block nave %} {% include 'navbarEmployee.html' %}
+{% endblock nave %}
+
+{% block content %} <br /><br />
+
+<br /><br />
+<br /><br />
+
+<style>
+    .category {
+        border: 2px solid black;
+        padding: 16px;
+        border-radius: 5px;
+        font-size: 20px;
+        margin-right: 40px;
+    }
+    .cart_item {
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        background-color: darkgoldenrod;
+        padding: 5px 30px;
+        border-radius: 5px;
+    }
+    .cart_item:hover {
+        color: white;
+    }
+    .button_item_employee{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+    }
+    </style>
+
+<div style="margin-left: 50px;display: flex;align-items: center;justify-content: space-between;margin-right: 40px;">
+    <div>
+    <a href="{%url 'show_items_employeedata' 'All_Products' %}" class="category"
+        >All Products</a
+    >
+    <a href="{%url 'show_items_employeedata' 'Beverage' %}" class="category">Beverage</a>
+    <a href="{%url 'show_items_employeedata' 'Dairy_products' %}" class="category"
+        >Dairy Products</a
+    >
+    <a href="{%url 'show_items_employeedata' 'Snacks' %}" class="category"
+        >Snacks</a
+    >
+    </div>
+    <a style = "margin-left: 300px;" href="{%url 'add_item_employee'%}"><button style="background-color: #eeb365;border: none;outline: none;padding: 10px 20px;font-size: 20px;border-radius: 5px;">Add Item</button></a>
+</div>
+
+
+<br />
+<br /><br />
+<div style="margin: 0 50px">
+    <div class="row">
+        {% for p in sch %}
+
+        <div
+            class="col-md-4 col-lg-3 d-flex align-items-start"
+            data-aos="fade-up"
+            style="margin-bottom: 30px"
+        >
+            <div>
+                <div
+                    class="rounded border"
+                    style="
+                        padding: 20px 26px;
+                        height: 580px;
+                        width: 320px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-between;
+                    "
+                >
+                    <div class="category-image" style="min-width: 100%;height: 300px;">
+                        <img src="/{{p.product_image}}" alt = "category image" style="width: 100%;">
+                    </div>
+
+                    <h5 class="title" style="font-weight: bold; height: 80px;text-align:center">
+                        {{p.item_name}}
+                    </h5>
+                    <p
+                        class="description"
+                        style="font-size: 15px; font-weight: 500"
+                    >
+                        Quantity - {{p.quantity}}
+                    </p>
+                    <p
+                        class="description"
+                        style="font-size: 15px; font-weight: 500"
+                    >
+                        Required Quantity - {{p.required_quantity}}
+                    </p>
+                    <p
+                        class="description"
+                        style="font-size: 15px; font-weight: 500"
+                    >
+                        Price - {{p.price}}
+                    </p>
+                    <div class="button_item_employee">
+                        <a
+                        
+                        type="submit"
+                        href="{% url 'delete_items_employee' p.item_id %}"
+                        class="cart_item"
+                        >Delete</a
+                    >
+                    <a
+                        type="submit"
+                        href="{% url 'update_item_employee' p.item_id %}"
+                        class="cart_item"
+                        >Update</a
+                    >
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+
+{% endblock content %}
+
+

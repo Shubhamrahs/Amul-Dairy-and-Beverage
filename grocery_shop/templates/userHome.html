@@ -1,0 +1,72 @@
+{% extends 'main.html' %} {% block nave %} {% include 'navbar.html' %}
+{%endblock nave %} {% block content %}
+
+<style>
+    .heroSection {
+        margin-left: 40px;
+        margin-top: 120px;
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        margin-right: 50px;
+    }
+
+    .shopName {
+        font-size: 60px;
+        font-weight: bold;
+    }
+
+    .shopDescription {
+        margin-top: 30px;
+        font-size: 18px;
+        font-weight: normal;
+        width: 600px;
+    }
+
+    .button {
+        margin-top: 30px;
+        background-color: #eeb365;
+        border-radius: 5px;
+        border: none;
+        padding: 15px 30px;
+        font-size: 20px;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+        font-weight: 500;
+    }
+
+    .button:hover {
+        transform: scale(1.05);
+        transition: all 250ms ease-in-out;
+    }
+</style>
+
+
+<section id="hero" class="d-flex justify-cntent-center align-items-center">
+    <div id="heroCarousel" data-bs-ride="carousel" data-bs-interval="5000">
+        <div class="heroSection">
+            <div class="left">
+                <div class="shopName">Amul Dairy and Beverages Shop</div>
+                <div class="shopDescription">
+                    Check out our Menu.
+                </div>
+                <a href="{% url 'show_items' %}"
+                    ><button class="button">View Items in the store</button></a
+                >
+                
+            </div>
+
+            <div class="right">
+                <img
+                    src="https://image.freepik.com/free-vector/milk-usage-with-bakery-products_1284-64729.jpg"
+                    alt="Hero"
+                    style="width: 700px"
+                />
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

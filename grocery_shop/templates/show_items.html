@@ -1,0 +1,91 @@
+{% extends 'main.html' %} {% block nave %} {% include 'navbar.html' %}
+{% endblock nave %} {% block content %}
+
+<style>
+    .category {
+        border: 2px solid black;
+        padding: 16px;
+        border-radius: 5px;
+        font-size: 20px;
+        margin-right: 40px;
+    }
+    .cart_item {
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        background-color: darkgoldenrod;
+        padding: 5px 30px;
+        border-radius: 5px;
+    }
+    .cart_item:hover {
+        color: white;
+    }
+</style>
+
+<br /><br />
+<br /><br /><br />
+<div style="margin-left: 50px">
+    <a href="{%url 'show_itemsdata' 'All_Products' %}" class="category"
+        >All Products</a
+    >
+    <a href="{%url 'show_itemsdata' 'Beverage' %}" class="category">Beverage</a>
+    <a href="{%url 'show_itemsdata' 'Dairy_products' %}" class="category"
+        >Dairy Products</a
+    >
+    <a href="{%url 'show_itemsdata' 'Snacks' %}" class="category"
+        >Snacks</a
+    >
+</div>
+
+<br />
+<br /><br />
+<div style="margin: 0 50px">
+    <div class="row">
+        {% for p in sch %}
+
+        <div
+            class="col-md-4 col-lg-3 d-flex align-items-start"
+            data-aos="fade-up"
+            style="margin-bottom: 30px"
+        >
+            <div>
+                <div
+                    class="rounded border"
+                    style="
+                        padding: 20px 26px;
+                        height: 580px;
+                        width: 320px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-between;
+                    "
+                >
+                    <div class="category-image" style="min-width: 100%;height: 300px;">
+                        <img src="/{{p.product_image}}" alt = "category image" style="width: 100%;">
+                    </div>
+
+                    <h5 class="title" style="font-weight: bold; height: 80px;text-align:center">
+                        {{p.item_name}}
+                    </h5>
+                    <p
+                        class="description"
+                        style="font-size: 15px; font-weight: 500"
+                    >
+                        Price - {{p.price}}
+                    </p>
+                    <a
+                        type="submit"
+                        href="{% url 'add_cart' p.item_id %}"
+                        class="cart_item"
+                        >Add item to cart</a
+                    >
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+
+
+{% endblock content %}

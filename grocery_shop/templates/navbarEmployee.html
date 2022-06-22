@@ -1,0 +1,158 @@
+<style>
+    .hello-msg {
+        font-size: 20px;
+        color: #000;
+        margin-right: 20px;
+        text-align: center;
+    }
+    .hello-msg:hover {
+        color: #000;
+    }
+    .logo {
+        width: 50px;
+    }
+
+    .searchBar {
+        margin-right: 50px;
+        display: flex;
+        align-items: center;
+    }
+
+    .searchBar input {
+        height: 24px;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        padding: 5%;
+        outline: none;
+        border: none;
+        font-size: 18px;
+        max-width: 240px;
+        line-height: 24px;
+        margin-left: 245px;
+    }
+
+    .searchIconDiv {
+        background-color: white;
+        padding: 10.8px;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        cursor: pointer;
+    }
+    .right {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-right: 40px;
+        gap: 20px;
+    }
+    .head {
+        background-color: #ebebeb;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+            0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+            0 12.5px 10px rgba(0, 0, 0, 0.06),
+            0 12.3px 17.9px rgba(0, 0, 0, 0.072), 0 0px 0px rgba(0, 0, 0, 0.086),
+            0 20px 150px rgba(0, 0, 0, 0.12);
+        position: absolute;
+        top: 0;
+        width: 100%;
+        padding: 10px 40px;
+        position: fixed;
+        z-index: 1;
+    }
+    .cart {
+        position: relative;
+        cursor: pointer;
+    }
+    .cart-count {
+        position: absolute;
+        color: black;
+        top: 0;
+        right: -5px;
+        background-color: white;
+        border-radius: 50%;
+        height: 18px;
+        width: 18px;
+        text-align: center;
+        font-size: 12px;
+    }
+    .userOptions {
+        position: absolute;
+        top: 52px;
+        background-color: white;
+        right: 0;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        font-size: 18px;
+        width: 100px;
+        opacity: 0;
+        display: none;
+        text-align: center;
+    }
+    .logout {
+        text-align: center;
+    }
+
+    .userImage {
+        height: 50px;
+        width: 50px;
+        object-fit: cover;
+    }
+
+    .user {
+        margin-left: 25px;
+        position: relative;
+        cursor: pointer;
+    }
+    .user .userImage {
+        border-radius: 50%;
+    }
+
+    .user:hover .userOptions {
+        opacity: 1;
+        display: inline-flex;
+        transition: all 0.2s ease-in-out;
+    }
+    .show {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 25px;
+    }
+   
+</style>
+
+<nav class="head">
+    <div class="left">
+        <a href="{% url 'employeeHome' %}">
+            <img
+                src="https://pngimage.net/wp-content/uploads/2018/06/logo-juice-png-1.png"
+                class="logo"
+        /></a>
+    </div>
+    <div class="right">
+        
+        <div class="user">
+            <img
+                src="https://img.icons8.com/external-bearicons-glyph-bearicons/64/000000/external-User-essential-collection-bearicons-glyph-bearicons.png"
+                alt=""
+                class="userImage"
+            />
+            <div class="userOptions">
+                
+                <div class="logout">
+                    <a class="hello-msg" href="{% url 'logout' %}">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

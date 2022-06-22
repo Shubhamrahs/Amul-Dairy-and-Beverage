@@ -1,0 +1,92 @@
+{% extends 'main.html' %} {% block nave %} {% include 'navbarOwner.html' %}
+{% endblock nave %} {%block content %}
+
+<style>
+    #blogging {
+        padding: 12px 12px 12px;
+        border-radius: 5px;
+        margin-top: 35px;
+    }
+    .entries {
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+    }
+</style>
+
+<br /><br /><br /><br /><br />
+<a href="{% url 'add_employee'%}" style="margin-left: 1100px"
+    ><button
+        style="
+            background-color: #eeb365;
+            border: none;
+            outline: none;
+            padding: 10px 20px;
+            font-size: 20px;
+            border-radius: 5px;
+        "
+    >
+        Add Employee
+    </button>
+</a>
+
+<section id="blogging" class="blog">
+    <div data-aos="fade-up">
+        <div class="row">
+            <div class="entries">
+                <article class="entry">
+                    <div class="entry-content">
+                        <table class="table" style="width: 90vw">
+                            <thead>
+                                <tr
+                                    style="
+                                        text-transform: uppercase;
+                                        word-spacing: 5px;
+                                        letter-spacing: 1px;
+                                        font-size: 1.2rem;
+                                    "
+                                >
+                                    <th>Employee name</th>
+                                    <th>EMail</th>
+                                    <th>Phone Number</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for p in allD %}
+                                <tr>
+                                    <td>{{p.name}}</td>
+                                    <td>{{p.email}}</td>
+                                    <td>{{p.phone_number}}</td>
+
+                                    <td>
+                                        <a
+                                            style="
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: center;
+                                                padding: 6px 6px 6px;
+                                                font-size: 18px;
+                                                color: red;
+                                            "
+                                            href="{% url 'delete_employee' p.employee_id %}"
+                                            ><i class="fas fa-trash"></i
+                                        ></a>
+                                    </td>
+                                </tr>
+                                {%endfor%}
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+                <!-- End blog entry --><br /><br />
+
+                <br /><br />
+            </div>
+            <!-- End blog entries list -->
+        </div>
+    </div>
+</section>
+<!-- End Blog Section -->
+
+{% endblock %}

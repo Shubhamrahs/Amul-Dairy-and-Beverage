@@ -1,0 +1,114 @@
+{% extends 'main.html' %} 
+
+
+{% block nave %} {% include 'navbarOwner.html' %}
+{% endblock nave %}
+
+{% block content %} <br /><br />
+<br /><br />
+<br /><br />
+
+<style>
+    .adding {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    .add_form {
+        display: flex;
+        flex-direction: column;
+        margin: 30px 450px 0px;
+    }
+</style>
+
+<script>
+    function submitted() {
+        if (
+            document.getElementById('fill1').value == '' ||
+            document.getElementById('fill2').value == '' ||
+            document.getElementById('fill3').value == ''
+        ) {
+            alert('Please fill in the form')
+            // return false
+        } else {
+            alert('New employee added successfully!')
+            // return true
+        }
+    }
+</script>
+
+<section
+    class="contact"
+    data-aos="fade-up"
+    data-aos-easing="ease-in-out"
+    data-aos-duration="500"
+>
+    <div class="adding">
+        <div class="column">
+            <h1
+                style="
+                    text-align: center;
+                    margin-top: 20px;
+                    text-transform: uppercase;
+                    word-spacing: 10px;
+                "
+            >
+                Add New Employee
+            </h1>
+            <div>
+                <form action="" method="post" role="form" class="add_form">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <input
+                            type="text"
+                            class="form-control form-control-lg"
+                            id="fill1"
+                            style="outline: none"
+                            name="name"
+                            placeholder="Add Name"
+                            required
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <input
+                            type="email"
+                            class="form-control form-control-lg"
+                            name="email"
+                            id="fill2"
+                            placeholder="Add Email"
+                            required
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <input
+                            type="tel"
+                            class="form-control form-control-lg"
+                            name="phone_number"
+                            id="fill3"
+                            placeholder="Add Contact Number"
+                            required
+                            title="Please enter exactly 10 digits"
+                            maxlength="10"
+                        />
+                    </div>
+
+                    <button
+                        type="submit"
+                        value="Submit"
+                        onclick="{submitted()}"
+                        class="btn btn-success form-control-lg"
+                        style="font-size: 25px; margin-top: 20px"
+                    >
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Contact Section -->
+
+{% endblock %}

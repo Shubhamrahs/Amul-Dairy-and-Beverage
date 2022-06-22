@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Amul Dairy and Beverages Shop</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="icon"
+            href="https://pngimage.net/wp-content/uploads/2018/06/logo-juice-png-1.png"
+        />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+            integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+            crossorigin="anonymous"
+        />
+    </head>
+    <body>
+        {% block nave %} {% endblock %}
+
+        <div class="container-fluid">{% block content %} {% endblock %}</div>
+    </body>
+</html>

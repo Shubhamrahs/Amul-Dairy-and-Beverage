@@ -1,0 +1,101 @@
+<style>
+    .hello-msg {
+        font-size: 20px;
+        color: #000;
+        margin-right: 20px;
+        text-align: center;
+    }
+    .hello-msg:hover {
+        color: #000;
+    }
+    .logo {
+        width: 50px;
+    }
+
+    .searchBar {
+        margin-right: 50px;
+        display: flex;
+        align-items: center;
+    }
+
+    .searchBar input {
+        height: 24px;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        padding: 5%;
+        outline: none;
+        border: none;
+        font-size: 18px;
+        max-width: 240px;
+        line-height: 24px;
+        margin-left: 245px;
+    }
+
+    .searchIconDiv {
+        background-color: white;
+        padding: 11.5px;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
+        cursor: pointer;
+    }
+    .right {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-right: 40px;
+        gap: 20px;
+    }
+    .head {
+        background-color: #ebebeb;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+            0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+            0 12.5px 10px rgba(0, 0, 0, 0.06),
+            0 12.3px 17.9px rgba(0, 0, 0, 0.072), 0 0px 0px rgba(0, 0, 0, 0.086),
+            0 20px 150px rgba(0, 0, 0, 0.12);
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        width: 100%;
+        padding: 10px 40px;
+    }
+    .clear {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        margin-left: 25px;
+    }
+    .clear a {
+        font-size: 22px;
+        color: rgb(20, 18, 18);
+    }
+</style>
+
+<nav class="head">
+    <div class="left">
+        <a href="{% url 'home' %}">
+            <img
+                src="https://pngimage.net/wp-content/uploads/2018/06/logo-juice-png-1.png"
+                class="logo"
+        /></a>
+    </div>
+    <div class="right">
+        <!-- <div class="searchBar">
+            <input placeholder="Search" id="searchBarInput" />
+            <div class="searchIconDiv">
+                <img
+                    src="https://img.icons8.com/ios-filled/24/000000/search--v1.png"
+                    alt="Search Icon"
+                />
+            </div>
+        </div> -->
+        <div class="clear">
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register' %}">Sign Up</a>
+        </div>
+    </div>
+</nav>
